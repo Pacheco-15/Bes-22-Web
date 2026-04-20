@@ -1,7 +1,0 @@
-# CODEOWNERS
-# Cada linha define um padrão de arquivo e os owners responsáveis por revisá-lo.
-# O(s) owner(s) serão solicitados automaticamente para revisar todo PR que altere esses arquivos.
-# Documentação: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
-
-# Owner padrão para todo o repositório
-* @Pacheco-15
