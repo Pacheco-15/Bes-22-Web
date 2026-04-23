@@ -6,3 +6,5 @@ const bcrypt = require('bcryptjs');
 describe("Teste de validação do formulario", () => {
     test
 }
+
+teste(123555)
