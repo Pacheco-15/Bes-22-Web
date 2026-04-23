@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { LogOut, Plus, LayoutDashboard, FileText, CheckCircle, Clock, AlertCircle } from 'lucide-react';
+import API_BASE_URL from '../api';
 
 const Dashboard = () => {
   const [tasks, setTasks] = useState([]);
@@ -13,7 +14,7 @@ const Dashboard = () => {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/tasks');
+      const response = await axios.get(`${API_BASE_URL}/api/tasks`);
       setTasks(response.data);
     } catch (error) {
       console.error('Erro ao buscar tarefas:', error);
@@ -28,7 +29,7 @@ const Dashboard = () => {
 
   const updateStatus = async (id, newStatus) => {
     try {
-      await axios.patch(`http://localhost:3001/api/tasks/${id}/status`, { status: newStatus });
+      await axios.patch(`${API_BASE_URL}/api/tasks/${id}/status`, { status: newStatus });
       fetchTasks();
     } catch (err) {
       console.error('Erro atualizar status', err);
