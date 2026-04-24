@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { LayoutDashboard, DownloadCloud, FileBarChart, Filter } from 'lucide-react';
+import API_BASE_URL from '../api';
 
 const Report = () => {
   const [tasks, setTasks] = useState([]);
@@ -10,7 +11,7 @@ const Report = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/tasks');
+        const response = await axios.get(`${API_BASE_URL}/api/tasks`);
         setTasks(response.data);
       } catch (err) {
         console.error('Erro buscar', err);
