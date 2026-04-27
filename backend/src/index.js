@@ -17,8 +17,8 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
-    console.log(`Backend rodando na porta ${PORT}`);
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Backend rodando na porta ${PORT} (acessível na rede)`);
   });
 }
 

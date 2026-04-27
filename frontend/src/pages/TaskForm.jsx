@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { LayoutDashboard, Save, ArrowLeft } from 'lucide-react';
 import { parseISO, isFuture, format, isValid } from 'date-fns';
+import API_BASE_URL from '../api';
 
 const TaskForm = () => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const TaskForm = () => {
 
     try {
       // Algoritmo 7: Persiste a tarefa
-      await axios.post('http://localhost:3001/api/tasks', formData);
+      await axios.post(`${API_BASE_URL}/api/tasks`, formData);
       setSuccessMsg('Tarefa criada com sucesso!');
       
       // Algoritmo 8: Retorna pro painel que vai se atualizar (usamos delay visual)
