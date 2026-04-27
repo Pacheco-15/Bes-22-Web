@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">18.18% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>4/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>4/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,75 +103,75 @@
 <a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">37x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const db = require('../db');
 &nbsp;
-exports.createTask = (req, res) =&gt; {
-  const { title, description, deadline, priority, assigned_to } = req.body;
+exports.createTask = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const { title, description, deadline, priority, assigned_to } = <span class="cstat-no" title="statement not covered" >req.body;</span>
   
   // Algoritmo: Passo 4 - Sistema verifica se todos os campos obrigatórios estão preenchidos
-  if (!title || !deadline || !priority || !assigned_to) {
-    return res.status(400).json({ error: 'Campos obrigatórios ausentes.' });
+<span class="cstat-no" title="statement not covered" >  if (!title || !deadline || !priority || !assigned_to) {</span>
+<span class="cstat-no" title="statement not covered" >    return res.status(400).json({ error: 'Campos obrigatórios ausentes.' });</span>
   }
 &nbsp;
   // Algoritmo: Passo 7 - Persiste a tarefa
-  const query = `INSERT INTO tasks (title, description, deadline, priority, assigned_to, status) VALUES (?, ?, ?, ?, ?, 'pending')`;
+  const query = <span class="cstat-no" title="statement not covered" >`INSERT INTO tasks (title, description, deadline, priority, assigned_to, status) VALUES (?, ?, ?, ?, ?, 'pending')`;</span>
   
-  db.run(query, [title, description, deadline, priority, assigned_to], function(err) {
-    if (err) {
-      return res.status(500).json({ error: 'Erro ao criar a tarefa no banco.' });
+<span class="cstat-no" title="statement not covered" >  db.run(query, [title, description, deadline, priority, assigned_to], <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >    if (err) {</span>
+<span class="cstat-no" title="statement not covered" >      return res.status(500).json({ error: 'Erro ao criar a tarefa no banco.' });</span>
     }
-    res.status(201).json({ id: this.lastID, message: 'Tarefa criada com sucesso!' });
+<span class="cstat-no" title="statement not covered" >    res.status(201).json({ id: this.lastID, message: 'Tarefa criada com sucesso!' });</span>
   });
 };
 &nbsp;
-exports.getTasks = (req, res) =&gt; {
-  db.all('SELECT * FROM tasks', [], (err, rows) =&gt; {
-    if (err) return res.status(500).json({ error: 'Erro ao buscar tarefas.' });
-    res.json(rows);
+exports.getTasks = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  db.all('SELECT * FROM tasks', [], <span class="fstat-no" title="function not covered" >(e</span>rr, rows) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ error: 'Erro ao buscar tarefas.' });</span></span>
+<span class="cstat-no" title="statement not covered" >    res.json(rows);</span>
   });
 };
 &nbsp;
-exports.updateTaskStatus = (req, res) =&gt; {
-  const { id } = req.params;
-  const { status } = req.body;
+exports.updateTaskStatus = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
+  const { status } = <span class="cstat-no" title="statement not covered" >req.body;</span>
 &nbsp;
-  db.run('UPDATE tasks SET status = ? WHERE id = ?', [status, id], function(err) {
-    if (err) return res.status(500).json({ error: 'Erro ao atualizar tarefa.' });
-    res.json({ message: 'Status atualizado com sucesso.' });
+<span class="cstat-no" title="statement not covered" >  db.run('UPDATE tasks SET status = ? WHERE id = ?', [status, id], <span class="fstat-no" title="function not covered" >fu</span>nction(err) {</span>
+<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ error: 'Erro ao atualizar tarefa.' });</span></span>
+<span class="cstat-no" title="statement not covered" >    res.json({ message: 'Status atualizado com sucesso.' });</span>
   });
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -181,7 +181,7 @@ exports.updateTaskStatus = (req, res) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-24T19:00:39.349Z
+                at 2026-04-27T17:43:59.266Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.24% </span>
+                <span class="strong">57.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/33</span>
+                <span class='fraction'>19/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>8/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.62% </span>
+                <span class="strong">62.96% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/27</span>
+                <span class='fraction'>17/27</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -126,18 +126,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,19 +169,19 @@ exports.register = <span class="fstat-no" title="function not covered" >(r</span
   });
 };
 &nbsp;
-exports.login = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
-  const { email, password } = <span class="cstat-no" title="statement not covered" >req.body;</span>
-<span class="cstat-no" title="statement not covered" >  if (!email || !password) <span class="cstat-no" title="statement not covered" >return res.status(400).json({ error: 'Preencha email e senha.' });</span></span>
+exports.login = (req, res) =&gt; {
+  const { email, password } = req.body;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!email || !password) <span class="cstat-no" title="statement not covered" >return res.status(400).json({ error: 'Preencha email e senha.' });</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  db.get('SELECT * FROM users WHERE email = ?', [email], <span class="fstat-no" title="function not covered" >(e</span>rr, user) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ error: 'Erro no servidor' });</span></span>
-<span class="cstat-no" title="statement not covered" >    if (!user) <span class="cstat-no" title="statement not covered" >return res.status(401).json({ error: 'Usuário não encontrado' });</span></span>
+  db.get('SELECT * FROM users WHERE email = ?', [email], (err, user) =&gt; {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ error: 'Erro no servidor' });</span>
+    if (!user) return res.status(401).json({ error: 'Usuário não encontrado' });
 &nbsp;
-    const isValid = <span class="cstat-no" title="statement not covered" >bcrypt.compareSync(password, user.password);</span>
-<span class="cstat-no" title="statement not covered" >    if (!isValid) <span class="cstat-no" title="statement not covered" >return res.status(401).json({ error: 'Senha inválida' });</span></span>
+    const isValid = bcrypt.compareSync(password, user.password);
+    if (!isValid) return res.status(401).json({ error: 'Senha inválida' });
 &nbsp;
-    const token = <span class="cstat-no" title="statement not covered" >jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '8h' });</span>
-<span class="cstat-no" title="statement not covered" >    res.json({ message: 'Login bem sucedido', token, user: { id: user.id, email: user.email } });</span>
+    const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, { expiresIn: '8h' });
+    res.json({ message: 'Login bem sucedido', token, user: { id: user.id, email: user.email } });
   });
 };
 &nbsp;
@@ -202,7 +202,7 @@ setTimeout(seedUser, 1000);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-24T19:00:39.349Z
+                at 2026-04-27T17:43:59.266Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
